@@ -2,15 +2,37 @@
     width: 800px;
     height: 400px;
     border: 1px solid #666;
-  }
-  path {
+}
+path {
     fill: none;
     stroke-width: 1px;
     stroke: #666;
-  }
-  circle {
+}
+circle {
     fill: steelblue;
-  }
-  circle.selected {
+}
+circle.selected {
     fill: #ff0000;
+}
+.links {
+    stroke: #0000aa;
+    /* stroke-opacity: 0.2; */
+}
+
+.polygons {
+    fill: none;
+    stroke: #000;
+}
+
+.polygons :first-child {
+    fill: #f00;
+}
+
+.sites {
+    fill: #000;
+    stroke: #fff;
+}
+
+.sites :first-child {
+    fill: #fff;
 }
