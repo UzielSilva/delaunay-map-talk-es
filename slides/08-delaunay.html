@@ -1,0 +1,67 @@
+<section id="delaunay">
+	<h2>Triangulación de Delaunay</h2>
+	<p>
+		<ul>
+			<li>
+				Ningún vértice puede estar dentro del circuncírculo del triángulo formado por
+				cualesquiera otros 3 vértices.
+			</li>
+			<li>Maximiza los ángulos internos de cada triángulo (los hace más "equiláteros")</li>
+			<li>Posee algoritmo de construcción</li>
+			<li>Aplicaciones en modelados 3D, los hace más suaves</li>
+		</ul>
+	</p>
+</section>
+<section id="ventajas-delaunay">
+	<h2>Ventajas en nuestro problema</h2>
+	<p>
+		<ul>
+			<li>Nos da mejores triángulos</li>
+			<li>Coste razonable(complejidad \(O(n^2)\), donde \(n\) es el número de vértices)</li>
+		</ul>
+	</p>
+</section>
+<section id="desventajas-delaunay">
+	<h2>Desentajas en nuestro problema</h2>
+	<p>
+		<ul>
+			<li>El algoritmo no ve aristas, sólo vértices</li>
+			<li>Puede generar casos extraños</li>
+			<li>Crea triángulos afuera de los polígonos</li>
+		</ul>
+	</p>
+</section>
+<section id="desventajas-delaunay2">
+	<h2>Desentajas en nuestro problema</h2>
+	<div>
+		<img src="images/delaunay-caso.jpg">
+	</div>
+</section>
+<section id="soluciones-delaunay">
+	<h2>Soluciones</h2>
+	<p>
+		<ul>
+			<li>Usar Ray Casting para descartar los incentros fuera del polígono</li>
+			<li>
+				Forzar al algoritmo a cambiar o no cambiar arista cuando se trata de un borde
+			</li>
+		</ul>
+	</p>
+</section>
+<section id="demo-delaunay">
+	<h2>Demo</h2>
+	<div>
+		<svg id="canvas-delaunay" width="960" height="500"></svg>
+	</div>
+</section>
+<section id="demo-voronoi">
+	<h2>Bonus!, Voronoi</h2>
+	<div>
+		<svg id="canvas-voronoi" width="960" height="500"></svg>
+	</div>
+</section>
+<script type="text/javascript">
+	// var event = new CustomEvent("delaunay", { "detail": "Delaunay demo in d3" });
+	// var event = new CustomEvent("voronoi", { "detail": "Voronoi demo in d3" });
+	// document.dispatchEvent(event);
+</script>

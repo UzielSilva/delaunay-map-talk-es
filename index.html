@@ -4,10 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Enseñando a una computadora a usar Paint</title>
 
+		<link rel="stylesheet" href="css/d3.css">
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,26 +25,57 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-state="introduccion" data-external="slides/01-introduccion.html"> </section>
+				<section data-state="origen" data-external="slides/02-origen.html"> </section>
+				<section data-state="error" data-external="slides/03-error.html"> </section>
+				<section data-state="realidad" data-external="slides/04-realidad.html"> </section>
+				<section data-state="definiciones" data-external="slides/05-definiciones.html"> </section>
+				<section data-state="ray-casting" data-external="slides/06-ray-casting.html"> </section>
+				<section data-state="caso-base" data-external="slides/07-caso-base.html"> </section>
+				<section data-state="delaunay" data-external="slides/08-delaunay.html"> </section>
+				<section data-state="resultado" data-external="slides/09-resultado.html"> </section>
+				<section data-state="mejoras" data-external="slides/10-mejoras.html"> </section>
 			</div>
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
-
+		<script src="js/d3.min.js"></script>
+		<script type="text/javascript" src="js/ray-casting.js"></script>
+		<script type="text/javascript" src="js/delaunay.js"></script>
+		<script type="text/javascript" src="js/voronoi.js"></script>
 		<script>
 			// More info about config & dependencies:
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
 				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				    { src: 'plugin/external/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/math/math.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+		</script>
+		<script type="text/javascript">
+		    function hideAllMarks(answerNumber){
+		        var criteria = ['content', 'communicative', 'organization', 'language'];
+		        criteria.forEach(function(mark){
+		            document.getElementById(mark+'-mark-'+answerNumber).style.display = 'none';
+		        });
+		    }
+		    function showMark(mark, answerNumber){
+		        document.getElementById(mark+'-mark-'+answerNumber).style.display = 'block';
+		    }
 		</script>
 	</body>
 </html>
