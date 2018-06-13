@@ -4,10 +4,10 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Enseñando a una computadora a usar Paint</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/white.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,8 +24,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-state="introduction" data-external="slides/01-introduction.html"> </section>
 			</div>
 		</div>
 
@@ -37,13 +36,32 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
 				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				    { src: 'plugin/external/external/external.js', condition: function() { return !!document.querySelector( '[data-external]' ); } },
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/search/search.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
+		</script>
+		<script type="text/javascript">
+		    function hideAllMarks(answerNumber){
+		        var criteria = ['content', 'communicative', 'organization', 'language'];
+		        criteria.forEach(function(mark){
+		            document.getElementById(mark+'-mark-'+answerNumber).style.display = 'none';
+		        });
+		    }
+		    function showMark(mark, answerNumber){
+		        document.getElementById(mark+'-mark-'+answerNumber).style.display = 'block';
+		    }
 		</script>
 	</body>
 </html>
